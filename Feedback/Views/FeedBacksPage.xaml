@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Feedback.Views.FeedBacksPage"
+             Padding="0,10,0,0"
+             BackgroundColor="#4B3F72">
+        <StackLayout>
+        <Grid Margin="0,0,0,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image HorizontalOptions="EndAndExpand"
+                   Source="bgImage"
+                   Grid.Row="0"
+                   Grid.RowSpan="3"
+                   Grid.Column="1" />
+
+            <Label FontAttributes="Bold"
+                   FontSize="26"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="Seus FeedBacks"
+                   TextColor="#FFC857"
+                   VerticalOptions="StartAndExpand"
+                   WidthRequest="250"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Margin="30,0,0,0" />
+
+
+            <StackLayout Grid.Row="1"
+                         Grid.Column="0">
+                <Grid Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Image="icons8_good_quality_80.png"
+                            HorizontalOptions="Center"
+                            BorderColor="Transparent"
+                            BackgroundColor="Transparent"
+                            Scale="0.6"
+                            Grid.Column="0"
+                             />
+
+                    <Button Image="icons8_unlike_80.png"
+                            HorizontalOptions="Center"
+                            BorderColor="Transparent"
+                            BackgroundColor="Transparent"
+                            Scale="0.6"
+                            Grid.Column="1"
+                             />
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2"
+                         Grid.Column="0">
+                <Grid Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label FontAttributes="Bold"
+                           FontSize="35"
+                           HorizontalOptions="Center"
+                           Text="30"
+                           TextColor="#FFC857"
+                           VerticalOptions="StartAndExpand"
+                           Grid.Column="0"
+                           />
+
+                    <Label FontAttributes="Bold"
+                           FontSize="35"
+                           HorizontalOptions="Center"
+                           Text="05"
+                           TextColor="#FFC857"
+                           VerticalOptions="StartAndExpand"
+                           Grid.Column="1"
+                            />
+
+                </Grid>
+            </StackLayout>
+        </Grid>
+
+        <ScrollView HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+
+            <yummy:PancakeView Margin="0,20,0,0"
+                               Padding="10,0,10,10"
+                               BackgroundColor="White"
+                               CornerRadius="20,20,0,0"
+                               VerticalOptions="FillAndExpand">
+                <StackLayout>
+
+                    <SearchBar TextChanged="Handle_TextChanged" 
+                               ></SearchBar>
+
+                    <ListView x:Name="ItemsListView"
+                              ItemsSource="{Binding FeedBacks}"
+                              VerticalOptions="FillAndExpand"
+                              HasUnevenRows="True"
+                              RefreshCommand="{Binding LoadItemsCommand}"
+                              IsPullToRefreshEnabled="true"
+                              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                              CachingStrategy="RecycleElement"
+                              ItemSelected="OnItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="2"
+                                           Margin="5"
+                                           HasShadow="True"
+                                           CornerRadius="0">
+                                        <StackLayout Orientation="Horizontal"
+                                                     Margin="0"
+                                                     Padding="0">
+                                            <BoxView Color="{Binding BoxColor}"
+                                                     WidthRequest="4"
+                                                     Margin="0" />
+                                            <Grid VerticalOptions="FillAndExpand"
+                                                  Padding="0"
+                                                  Margin="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  BackgroundColor="White">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0"
+                                                      VerticalOptions="FillAndExpand"
+                                                      Padding="0"
+                                                      Margin="0"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Label FontAttributes="Bold"
+                                                           Grid.Row="0"
+                                                           HorizontalTextAlignment="Start"
+                                                           VerticalTextAlignment="Center"
+                                                           FontSize="Default"
+                                                           Text="{Binding Type}"
+                                                           Margin="0" />
+                                                    <Label Grid.Row="1"
+                                                           VerticalTextAlignment="Start"
+                                                           FontSize="Small"
+                                                           Text="{Binding Description}"
+                                                           Margin="0" />
+                                                    <StackLayout Grid.Row="2"
+                                                                 Orientation="Horizontal">
+                                                        <Image WidthRequest="10"
+                                                               HeightRequest="10"
+                                                               Source="ic_calendar"
+                                                               VerticalOptions="Center" />
+                                                        <Label HorizontalTextAlignment="Start"
+                                                               VerticalTextAlignment="Center"
+                                                               FontSize="Micro"
+                                                               Text="{Binding RegisterDate}" />
+                                                    </StackLayout>
+                                                </Grid>
+                                                <StackLayout Orientation="Horizontal"
+                                                             Grid.Row="1"
+                                                             Padding="5"
+                                                             Margin="-6,0,0,0"
+                                                             HorizontalOptions="FillAndExpand"
+                                                             BackgroundColor="#F1F1F1">
+                                                    <Image WidthRequest="20"
+                                                           HeightRequest="20"
+                                                           Source="ico_heart" />
+                                                    <Image WidthRequest="20"
+                                                           HeightRequest="20"
+                                                           Source="ico_sent"/>
+
+                                                    <Image WidthRequest="20"
+                                                           HeightRequest="20"
+                                                           Source="ic_detail" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+
+
+
+                            <!--<DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="45"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="{Binding Type}}"
+                                               FontAttributes="Bold"
+                                               FontFamily="MediumFont"
+                                               LineBreakMode="TailTruncation"></Label>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               FontFamily="RegularFont"
+                                               Text="{Binding RegisterDate, StringFormat='{0:MMMM dd, yyyy}'}"
+                                               LineBreakMode="TailTruncation"></Label>
+                                        <Label Grid.Row="2"
+                                               Grid.Column="0"
+                                               FontFamily="RegularFont"
+                                               Text="{Binding Description}"
+                                               Font="Medium"
+                                               TextColor="Gray"
+                                               LineBreakMode="WordWrap"></Label>
+                                        <Image Grid.Row="0"
+                                               Grid.RowSpan="2"
+                                               Grid.Column="1"
+                                               Source="userimage.png"
+                                               Aspect="AspectFill" /> 
+                                    </Grid>
+                                </ViewCell>
+
+                                
+                            </DataTemplate>-->
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </yummy:PancakeView>
+        </ScrollView>
+    </StackLayout>
+    
+</ContentPage>

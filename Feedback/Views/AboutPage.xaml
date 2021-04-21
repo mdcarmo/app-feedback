@@ -5,7 +5,12 @@
              xmlns:vm="clr-namespace:Feedback.ViewModels"
              Title="{Binding Title}">
     
-    <ContentPage.BindingContext>
+    
+    
+    
+    
+    
+    <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
     
@@ -73,6 +78,6 @@
                         TextColor="White" />
             </StackLayout>
         </ScrollView>
-    </Grid>
+    </Grid>-->
     
 </ContentPage>

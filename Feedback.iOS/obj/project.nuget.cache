@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "2eUl4Yahwm/DMCbDEc4gUSi13uyHm7WHDoOpmFrhCJkZErajZO5cYi4pgn0x6ieXUNAN6FSlrPxDygV57A0z0g==",
+  "success": true,
+  "projectFilePath": "C:\\dev_2021\\app-feedback\\Feedback.iOS\\Feedback.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\U003889\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512",
+    "C:\\Users\\U003889\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512"
+  ],
+  "logs": []
+}

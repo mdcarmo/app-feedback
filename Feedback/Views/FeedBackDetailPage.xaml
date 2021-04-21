@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Feedback.Views.FeedBackDetailPage"
+             BackgroundColor="#4B3F72">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Voltar" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Responder" Clicked="Save_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Grid Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Label FontAttributes="Bold"
+                   FontSize="30"
+                   FontFamily="MediumFont"
+                   HorizontalOptions="Center"
+                   Text="FeedBack"
+                   TextColor="White"
+                   VerticalOptions="StartAndExpand"
+                   Grid.Row="0"/>
+
+            <Button Image="icons8_good_quality_80.png"
+                    HorizontalOptions="Center"
+                    BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    Scale="0.8"
+                    Grid.Row="1"/>
+        </Grid>
+        <StackLayout Spacing="10"
+                     Padding="10">
+            <Label Text="Autor do Feedback"
+                   FontSize="Small"
+                   FontFamily="RegularFont"
+                   TextColor="WhiteSmoke"
+                   FontAttributes="Bold">
+            </Label>
+
+            <Frame CornerRadius="5"
+                   Padding="0"
+                   BackgroundColor="White"
+                   HasShadow="False">
+                <Label Margin="5"
+                       HorizontalOptions="Fill"
+                       BackgroundColor="Transparent"
+                       Text="{Binding FeedBackAuthor}" />
+            </Frame>
+
+            <Label Text="Data do Feedback"
+                   TextColor="WhiteSmoke"
+                   FontSize="Small"
+                   FontFamily="RegularFont"
+                   FontAttributes="Bold">
+            </Label>
+
+            <Frame CornerRadius="5"
+                   Padding="0"
+                   BackgroundColor="White"
+                   HasShadow="False">
+                <Label Margin="5"
+                       HorizontalOptions="Fill"
+                       BackgroundColor="Transparent"
+                       Text="{Binding FeedBackRegisterDate}" />
+            </Frame>
+
+            <Label Text="Conteúdo"
+                   TextColor="WhiteSmoke"
+                   FontSize="Small"
+                   FontFamily="RegularFont"
+                   FontAttributes="Bold">
+            </Label>
+
+            <Frame CornerRadius="3"
+                   Padding="0"
+                   BackgroundColor="White"
+                   HasShadow="False">
+                <Label Margin="5"
+                       HorizontalOptions="Fill"
+                       FontSize="Body"
+                       BackgroundColor="Transparent"
+                       Text="{Binding FeedBackDescription}" />
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>

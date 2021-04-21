@@ -1,18 +1,16 @@
-﻿using System;
+﻿using Feedback.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using Feedback.Models;
-using Feedback.Services;
 
 namespace Feedback.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IFeedBackStore FeedBackStore =>
+            DependencyService.Get<IFeedBackStore>() ?? new MockFeedBackStore();
 
         bool isBusy = false;
         public bool IsBusy

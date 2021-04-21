@@ -4,6 +4,10 @@ using Xamarin.Forms.Xaml;
 using Feedback.Services;
 using Feedback.Views;
 
+[assembly: ExportFont("SEGOEUI.ttf", Alias = "RegularFont")]
+[assembly: ExportFont("SEGOEUIL.ttf", Alias = "LightFont")]
+[assembly: ExportFont("SEGUISB.ttf", Alias = "MediumFont")]
+
 namespace Feedback
 {
     public partial class App : Application

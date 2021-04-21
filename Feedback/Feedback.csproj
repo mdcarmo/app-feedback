@@ -11,7 +11,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\SEGOEUI.TTF" />
+    <None Remove="Fonts\SEGOEUIL.TTF" />
+    <None Remove="Fonts\SEGUISB.TTF" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\SEGOEUI.TTF" />
+    <EmbeddedResource Include="Fonts\SEGOEUIL.TTF" />
+    <EmbeddedResource Include="Fonts\SEGUISB.TTF" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />  
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\FeedBackDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FeedBacksPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HeaderContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
